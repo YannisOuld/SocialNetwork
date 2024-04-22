@@ -23,27 +23,27 @@
 
 <script setup>
 import { ref } from "vue";
-
 const title = ref(null);
 const message = ref(null);
 
 function submitForm() {
-  const formData = new FormData();
-  if (title.value != null) {
-    formData.append("title", title.value);
-  }
-  formData.append("message", message.value);
+  const formData = {
+    title: "",
+    message: "",
+  };
 
-  if (
-    (title.value == null && message.value == null) ||
-    message.value == null ||
-    title.value == null
-  ) {
-    console.log("Please fill out all fields!");
-    throw new Error("Please fill out all fields!");
+  if (title.value != null) {
+    formData.title = title.value;
+  }
+  if (message.value != null) {
+    formData.message = message.value;
+  }
+
+  if (title.value == null && message.value == null) {
+    return alert("Please fill out all fields!");
   }
   console.log(formData);
-  return formData;
+  return arr.value.push(formData).then(console.log(arr.value));
 }
 </script>
 

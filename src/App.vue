@@ -3,7 +3,7 @@ import Postform from "./components/Postform.vue";
 import Post from "./components/Post.vue";
 import { ref } from "vue";
 
-const arr = [
+const arr = ref([
   { title: "My First Post", message: "This is the content of my first post." },
   {
     title: "My Second Post",
@@ -32,15 +32,15 @@ const arr = [
     title: "My Tenth Post",
     message: "This is the content of my tenth post.",
   },
-];
+]);
 </script>
 
 <template>
   <div className="flex flex-row w-full">
-    <Postform />
+    <Postform :arr="arr" />
     <ul clasName="flex flex-col">
       <li v-for="post in arr" :key="post.title">
-        <Post :post="post" />
+        <Post :title="post.title" :message="post.message" />
       </li>
     </ul>
   </div>

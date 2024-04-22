@@ -6,10 +6,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-
-const post = ref({
-  title: "My First Post",
-  message: "This is the content of my first post.",
+const post = defineProps({
+  title: String,
+  message: String,
 });
 </script>
