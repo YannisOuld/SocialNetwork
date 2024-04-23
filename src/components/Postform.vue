@@ -1,13 +1,13 @@
 <template>
   <form
     @submit.prevent="submitForm"
-    className=" flex flex-col p-3 m-3 justify-center items-center w-96"
+    className=" flex flex-col p-3 m-3 justify-center items-center w-96 border-2 border-black rounded-md"
   >
-    <div className="flex justify-between mt-3 w-full">
+    <div className="flex justify-between m-3 w-full">
       <label className="mx-2" for="title">Title:</label>
       <input type="text" id="title" v-model="title" required />
     </div>
-    <div className="flex flex-col justify-between mt-3 w-full">
+    <div className="flex flex-col justify-between m-3 w-full">
       <label className="mx-2" for="message">Message:</label>
 
       <textarea

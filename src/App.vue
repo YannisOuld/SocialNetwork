@@ -36,10 +36,17 @@ const arr = ref([
 </script>
 
 <template>
-  <div className="flex flex-row w-full">
+  <div className="flex flex-col w-full justify-center items-center h-full">
+    <h1>Social network</h1>
     <Postform @addArray="(formdata) => arr.push(formdata)" />
-    <ul clasName="flex flex-col">
-      <li v-for="post in arr" :key="post.title">
+    <ul
+      className="flex flex-col overflow-y-auto h-96  w-2/4 justify-center items-center border-2 border-black rounded-md"
+    >
+      <li
+        className="m-5 border-2 border-black bg-slate-300 p-6 rounded-md w-3/4"
+        v-for="post in arr"
+        :key="post.title"
+      >
         <Post :title="post.title" :message="post.message" />
       </li>
     </ul>
