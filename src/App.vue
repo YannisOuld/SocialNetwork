@@ -37,7 +37,7 @@ const arr = ref([
 
 <template>
   <div className="flex flex-row w-full">
-    <Postform :arr="arr" />
+    <Postform @addArray="(formdata) => arr.push(formdata)" />
     <ul clasName="flex flex-col">
       <li v-for="post in arr" :key="post.title">
         <Post :title="post.title" :message="post.message" />

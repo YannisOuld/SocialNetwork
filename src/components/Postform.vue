@@ -23,6 +23,8 @@
 
 <script setup>
 import { ref } from "vue";
+
+const emit = defineEmits(["addArray"]);
 const title = ref(null);
 const message = ref(null);
 
@@ -42,8 +44,8 @@ function submitForm() {
   if (title.value == null && message.value == null) {
     return alert("Please fill out all fields!");
   }
-  console.log(formData);
-  return arr.value.push(formData).then(console.log(arr.value));
+
+  return emit("addArray", formData);
 }
 </script>
 
