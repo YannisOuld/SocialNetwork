@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>{{ post.title }}</h2>
+  <div className="bg-white rounded-lg">
+    <h2 className=" font-extrabold ">{{ post.title }}</h2>
     <p>{{ post.message }}</p>
   </div>
 </template>
