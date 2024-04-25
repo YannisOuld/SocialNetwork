@@ -25,6 +25,12 @@
 import { ref } from "vue";
 
 const emit = defineEmits(["addArray"]);
+const props = defineProps({
+  user: Object,
+  lastId: Number,
+});
+let id = ref(props.lastId + 1);
+
 const title = ref(null);
 const message = ref(null);
 
@@ -32,8 +38,11 @@ function submitForm() {
   const formData = {
     title: "",
     message: "",
+    user: props.user,
+    id: null,
   };
-
+  console.log(id.value);
+  formData.id = id;
   if (title.value != null) {
     formData.title = title.value;
   }
@@ -44,6 +53,9 @@ function submitForm() {
   if (title.value == null && message.value == null) {
     return alert("Please fill out all fields!");
   }
+
+  title.value = null;
+  message.value = null;
 
   return emit("addArray", formData);
 }
