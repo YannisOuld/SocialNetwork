@@ -63,16 +63,20 @@ export const usePostsStore = defineStore('posts', () => {
         user: { id: 1, firstname: "kevin", lastname: "smith" },
         message: "This is the content of my tenth post.",
     },]);
+
+    function postsNumber() {
+        return posts.length;
+    }
     function addPost(post) {
-        posts.push(post);
+        posts.value.push(post);
     };
     function deletePost(postId) {
-        posts = posts.filter(post => post.id !== postId);
+        posts.value = posts.value.filter(post => post.id !== postId);
     };
     function updatePost(postId, updatedPost) {
-        const index = posts.findIndex(post => post.id === postId);
+        const index = posts.value.findIndex(post => post.id === postId);
         if (index !== -1) {
-            posts[index] = updatedPost;
+            posts.value[index] = updatedPost;
         }
     };
     return {
@@ -80,6 +84,7 @@ export const usePostsStore = defineStore('posts', () => {
         addPost,
         deletePost,
         updatePost,
+        postsNumber
     };
 
 

@@ -23,9 +23,9 @@
 
 <script setup>
 import { ref } from "vue";
-import { usePostsStore } from "./store/posts";
+import { usePostsStore } from "../store/posts";
 
-const { addPost } = usePostsStore();
+const { addPost, postsNumber } = usePostsStore();
 
 const props = defineProps({
   user: Object,
@@ -35,11 +35,14 @@ const title = ref(null);
 const message = ref(null);
 
 function submitForm() {
+  const arrlenght = postsNumber();
+  const id = arrlenght + 1;
+
   const formData = {
     title: "",
     message: "",
     user: props.user,
-    id: null,
+    id: id,
   };
 
   if (title.value != null) {
@@ -56,7 +59,7 @@ function submitForm() {
   title.value = null;
   message.value = null;
 
-  return emit("addArray", formData);
+  return addPost(formData);
 }
 </script>
 
