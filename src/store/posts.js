@@ -65,13 +65,14 @@ export const usePostsStore = defineStore('posts', () => {
     },]);
 
     function postsNumber() {
-        return posts.length;
+        return posts.value.length;
     }
     function addPost(post) {
         posts.value.push(post);
     };
     function deletePost(postId) {
         posts.value = posts.value.filter(post => post.id !== postId);
+        console.log(posts.value)
     };
     function updatePost(postId, updatedPost) {
         const index = posts.value.findIndex(post => post.id === postId);

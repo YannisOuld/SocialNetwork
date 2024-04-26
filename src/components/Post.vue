@@ -9,7 +9,7 @@
     </div>
     <button
       v-if="currentUser == post.user.id"
-      @click="emit('deletePost', post)"
+      @click="deletePost(post.id)"
       className="rounded-full bg-red-600 font-bold text-white px-4 py-2"
     >
       x
@@ -18,11 +18,13 @@
 </template>
 
 <script setup>
-const emit = defineEmits(["deletePost"]);
+import { usePostsStore } from "../store/posts";
+const { deletePost } = usePostsStore();
 const post = defineProps({
   title: String,
   message: String,
   user: Object,
+  id: Number,
   currentUser: Number,
 });
 </script>
