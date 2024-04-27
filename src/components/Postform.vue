@@ -27,8 +27,6 @@ import { usePostsStore } from "../store/posts";
 
 const { addPost, postsNumber } = usePostsStore();
 
-const arrlenght = postsNumber();
-
 const props = defineProps({
   user: Object,
 });
@@ -37,6 +35,7 @@ const title = ref(null);
 const message = ref(null);
 
 async function submitForm() {
+  const arrlenght = postsNumber();
   const id = arrlenght + 1;
 
   const formData = {
@@ -64,6 +63,4 @@ async function submitForm() {
 }
 </script>
 
-<style scoped>
-/* Add your custom styles here */
-</style>
+<style scoped></style>
