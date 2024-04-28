@@ -9,7 +9,7 @@
     </div>
     <button
       v-if="currentUser == post.user.id"
-      @click="deletePost(post.id, post.title, post.message)"
+      @click="deletePost(post.id)"
       className="rounded-full bg-red-600 font-bold text-white px-4 py-2"
     >
       x

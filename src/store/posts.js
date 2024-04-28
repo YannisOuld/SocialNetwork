@@ -70,7 +70,7 @@ export const usePostsStore = defineStore('posts', () => {
     function addPost(post) {
         posts.value.push(post);
     };
-    function deletePost(postId, title, message) {
+    function deletePost(postId) {
 
         posts.value = posts.value.filter(post => post.id !== postId);
         console.log(posts.value)
